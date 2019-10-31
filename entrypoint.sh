@@ -64,7 +64,7 @@ fi
 cat <<-EOF > /etc/shadowsocks-libev/config.json
 {
     "server":["127.0.0.1"],
-    "server_port":"10001",
+    "server_port":"50001",
     "password":"${PASSWORD}",
     "timeout":300,
     "method":"rc4-md5",
@@ -86,7 +86,7 @@ http://0.0.0.0:${PORT}
 	root /wwwroot
 	index index.html
 	timeouts none
-	proxy ${V2_Path} localhost:10001 {
+	proxy ${V2_Path} localhost:50001 {
 		websocket
 		header_upstream -Origin
 	}
