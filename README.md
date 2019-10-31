@@ -21,6 +21,18 @@
 
 打开后复制，在客户端导入即可。
 
+**或者**
+
+手动配置：
+Server: test.herokuapp.com （test换为你的app名称）
+Port: 443
+Password: 部署时填写的密码
+Encry Method： RC4-MD5 （或者你填写的其它方式）
+Plugin: v2ray
+Plugin Transport mode: websocket-tls
+Hostname: 同Server
+Path： 你部署时填写的路径
+
 ## 3. 更新
 
 更新 v2ray-plugin 版本，访问 https://dashboard.heroku.com/apps 选择部署好的app，如果VER变量为 latest。直接选择More --> Restart all dynos, 程序自动重启，可通过view Logs确认进度。（更新指定版本： Settings --> Reveal Config Varsapp -->VER，修改成需要的版本号，例如 1.2）
