@@ -64,7 +64,7 @@ fi
 cat <<-EOF > /etc/shadowsocks-libev/config.json
 {
     "server":["127.0.0.1"],
-    "server_port":"50001",
+    "server_port":"2333",
     "password":"${PASSWORD}",
     "timeout":300,
     "method":"rc4-md5",
@@ -73,7 +73,7 @@ cat <<-EOF > /etc/shadowsocks-libev/config.json
     "reuse_port":true,
     "no_delay":true,
     "plugin": "v2ray-plugin",
-    "plugin_opts":"server;path={V2_Path}"
+    "plugin_opts":"server;path=${V2_Path}"
 }
 EOF
 
@@ -86,7 +86,7 @@ http://0.0.0.0:${PORT}
 	root /wwwroot
 	index index.html
 	timeouts none
-	proxy ${V2_Path} localhost:50001 {
+	proxy ${V2_Path} 127.0.0.1:2333 {
 		websocket
 		header_upstream -Origin
 	}
