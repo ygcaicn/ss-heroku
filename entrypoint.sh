@@ -63,7 +63,7 @@ if [ ! -d /etc/shadowsocks-libev ]; then
 fi
 cat <<-EOF > /etc/shadowsocks-libev/config.json
 {
-    "server":["127.0.0.1"],
+    "server":"127.0.0.1",
     "server_port":"2333",
     "password":"${PASSWORD}",
     "timeout":300,
@@ -86,9 +86,10 @@ http://0.0.0.0:${PORT}
 	root /wwwroot
 	index index.html
 	timeouts none
-	proxy ${V2_Path} 127.0.0.1:2333 {
+	proxy ${V2_Path} localhost:2333 {
 		websocket
 		header_upstream -Origin
+    transparent
 	}
 }
 EOF
