@@ -1,3 +1,7 @@
+# 暂时无法使用
+# 暂时无法使用
+# 暂时无法使用
+
 # 一键Shadowsocks+V2Ray-plugin快速部署到Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
@@ -6,7 +10,7 @@
 
 ## 1. 验证 
 
-服务端部署后，点 open app,能正常显示网页，地址补上path后(例如：https://test.herokuapp.com/static)访问显示 Bad Request，表示部署成功。
+服务端部署后，点 open app,能正常显示网页，地址补上path后(例如：<https://test.herokuapp.com/static>)访问显示 Bad Request，表示部署成功。
 
 ## 2. 客户端配置
 
@@ -24,6 +28,8 @@
 **或者**
 
 手动配置：
+
+```
 Server: test.herokuapp.com （test换为你的app名称）
 Port: 443
 Password: 部署时填写的密码
@@ -32,6 +38,7 @@ Plugin: v2ray
 Plugin Transport mode: websocket-tls
 Hostname: 同Server
 Path： 你部署时填写的路径
+```
 
 ## 3. 更新
 
