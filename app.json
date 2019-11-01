@@ -29,7 +29,7 @@
 
 
     "V2_QR_Path": {
-       "description": "二维码和配置链接路径，默认qr_img，为了保密性你也可以使用uuid。如AppName变量为no，此变量没有作用",
+       "description": "二维码和配置链接路径，默认qr_img，为了保密性你也可以使用uuid,但是不能与V2_Path相同。如AppName变量为no，此变量没有作用",
        "value": "qr_img"
      }
   },
