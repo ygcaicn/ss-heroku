@@ -1,7 +1,3 @@
-# 暂时无法使用
-# 暂时无法使用
-# 暂时无法使用
-
 # 一键Shadowsocks+V2Ray-plugin快速部署到Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
@@ -43,6 +39,10 @@ Path： 你部署时填写的路径
 ## 3. 更新
 
 更新 v2ray-plugin 版本，访问 https://dashboard.heroku.com/apps 选择部署好的app，如果VER变量为 latest。直接选择More --> Restart all dynos, 程序自动重启，可通过view Logs确认进度。（更新指定版本： Settings --> Reveal Config Varsapp -->VER，修改成需要的版本号，例如 1.2）
+
+2019/11/01当前版本使用正常：
+shadowsocks-libev：3.3.2+ds-1(debian apt)
+v2ray-plugin:v1.2.0
 
 # 参考 
 
