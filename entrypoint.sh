@@ -69,7 +69,7 @@ cat <<-EOF > /etc/shadowsocks-libev/config.json
     "timeout":300,
     "method":"rc4-md5",
     "mode": "tcp_and_udp",
-    "fast_open":true,
+    "fast_open":false,
     "reuse_port":true,
     "no_delay":true,
     "plugin": "v2ray-plugin",
