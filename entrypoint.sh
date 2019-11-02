@@ -67,7 +67,7 @@ cat <<-EOF > /etc/shadowsocks-libev/config.json
     "server_port":"2333",
     "password":"${PASSWORD}",
     "timeout":300,
-    "method":"rc4-md5",
+    "method":"${ENCRYPT}",
     "mode": "tcp_and_udp",
     "fast_open":false,
     "reuse_port":true,

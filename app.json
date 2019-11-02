@@ -4,7 +4,7 @@
   "keywords": ["V2ray", "Shadowsocks", "V2Ray-plugin"],
   "env": {
      "ENCRYPT": {
-      "description": "加密方式，由于有https加持，选最简单的就可以，默认：rc4-md5",
+      "description": "加密方式，由于有https加持，选最简单的就可以，默认：rc4-md5,其它的有（aes-256-cfb,chacha20-ietf-poly1305,salsa20,chacha20-ietf等.）",
       "value": "rc4-md5"
     },
      "PASSWORD": {
