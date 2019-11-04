@@ -45,16 +45,18 @@ Path： 你部署时填写的路径
 
 没有客户端的也可以从这里下载(Android)：
 
-[shadowsocks](./app/Shadowsocks 4.8.5 (com.github.shadowsocks).apk)
+[shadowsocks](https://github.com/ygcaicn/ss-heroku/raw/master/app/Shadowsocks%204.8.5%20(com.github.shadowsocks).apk)
 
-[v2ray-plugin](./app/v2ray 1.3.0 (com.github.shadowsocks.plugin.v2ray).apk)
+[v2ray-plugin](https://github.com/ygcaicn/ss-heroku/raw/master/app/v2ray%201.3.0%20(com.github.shadowsocks.plugin.v2ray).apk)
 
 ## 3. 更新
 
 更新 v2ray-plugin 版本，访问 <https://dashboard.heroku.com/apps> 选择部署好的app，如果VER变量为 latest。直接选择More --> Restart all dynos, 程序自动重启，可通过view Logs确认进度。（更新指定版本： Settings --> Reveal Config Varsapp -->VER，修改成需要的版本号，例如 1.2）
 
 2019/11/01当前版本使用正常：
+
 shadowsocks-libev：3.3.2+ds-1(debian apt)
+
 v2ray-plugin:v1.2.0
 
 # 参考 
