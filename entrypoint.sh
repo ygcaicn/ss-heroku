@@ -61,6 +61,7 @@ rm -rf wwwroot.tar.gz
 if [ ! -d /etc/shadowsocks-libev ]; then  
 　　mkdir /etc/shadowsocks-libev
 fi
+# 在heroku上fast_open必须为false
 cat <<-EOF > /etc/shadowsocks-libev/config.json
 {
     "server":"127.0.0.1",
