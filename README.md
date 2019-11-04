@@ -43,11 +43,11 @@ Hostname: 同Server
 Path： 你部署时填写的路径
 ```
 
-没有客户端的也可以从这里下载：
+没有客户端的也可以从这里下载(Android)：
 
-[./app/Shadowsocks 4.8.5 (com.github.shadowsocks).apk](shadowsocks)
+[shadowsocks](./app/Shadowsocks 4.8.5 (com.github.shadowsocks).apk)
 
-[./app/v2ray 1.3.0 (com.github.shadowsocks.plugin.v2ray).apk](v2ray-plugin)
+[v2ray-plugin](./app/v2ray 1.3.0 (com.github.shadowsocks.plugin.v2ray).apk)
 
 ## 3. 更新
 
