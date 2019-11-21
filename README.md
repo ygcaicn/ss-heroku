@@ -13,7 +13,7 @@
 
 ## 1. 验证
 
-服务端部署后，点 open app,能正常显示网页，地址补上path后(例如：<https://test.herokuapp.com/static>)访问显示 Bad Request，表示部署成功。
+服务端部署后，点 open app,能正常显示网页，地址补上path后(例如：<https://test.herokuapp.com/static>)访问显示404页面，表示部署成功。
 
 ## 2. 客户端配置
 
