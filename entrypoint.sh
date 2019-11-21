@@ -87,6 +87,14 @@ http://0.0.0.0:${PORT}
 	root /wwwroot
 	index index.html
 	timeouts none
+  errors {
+    404 404.html # Not Found
+    500 50x.html # Internal Server Error
+  }
+  rewrite ${V2_Path} {
+    if {>upgrade} not websocket
+    to status 404
+  }
 	proxy ${V2_Path} localhost:2333 {
 		websocket
 		header_upstream -Origin
