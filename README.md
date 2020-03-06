@@ -45,9 +45,9 @@ Path： 你部署时填写的路径
 
 没有客户端的也可以从这里下载(Android)：
 
-[shadowsocks](https://github.com/ygcaicn/ss-heroku/raw/master/app/Shadowsocks%204.8.5%20(com.github.shadowsocks).apk)
+[shadowsocks](https://github.com/shadowsocks/shadowsocks-android/releases/download/v5.0.5/shadowsocks--universal-5.0.5.apk)
 
-[v2ray-plugin](https://github.com/ygcaicn/ss-heroku/raw/master/app/v2ray%201.3.0%20(com.github.shadowsocks.plugin.v2ray).apk)
+[v2ray-plugin](https://github.com/shadowsocks/v2ray-plugin-android/releases/download/v1.3.1/v2ray-arm64-v8a-1.3.1.apk)
 
 windows:
 
@@ -63,7 +63,7 @@ shadowsocks-libev：3.3.2+ds-1(debian apt)
 
 v2ray-plugin:v1.2.0
 
-# 参考 
+# 参考
 
 https://github.com/xiangrui120/v2ray-heroku-undone
 
