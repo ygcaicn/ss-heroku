@@ -28,7 +28,8 @@ echo ${QR_Path}
 
 
 if [ "$VER" = "latest" ]; then
-  V_VER=`wget -qO- "https://api.github.com/repos/shadowsocks/v2ray-plugin/releases/latest" | grep 'tag_name' | cut -d\" -f4`
+  V_VER=`wget -qO- "https://api.github.com/repos/shadowsocks/v2ray-plugin/releases/latest" | sed -n -r -e 's/.*"tag_name".+?"([vV0-9\.]+?)".*/\1/p'`
+  [[ -z "${V_VER}" ]] && V_VER="v1.3.0"
 else
   V_VER="v$VER"
 fi
