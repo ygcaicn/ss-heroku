@@ -18,7 +18,7 @@
      }, 
 
      "V2_Path": {
-      "description": "Path路径，默认/static,为了安全你也可以使用uuid替换static，/不能少。",
+      "description": "Path路径，默认/s233,为了安全你也可以使用uuid替换s233，/不能少。如果开启反代，不要与反代uri重复",
       "value": "/s233"
     },
 
