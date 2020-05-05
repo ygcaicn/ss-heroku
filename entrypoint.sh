@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 #v2ray-plugin版本
 if [[ -z "${VER}" ]]; then
@@ -17,12 +17,12 @@ fi
 
 
 if [[ -z "${V2_Path}" ]]; then
-  V2_Path="/static"
+  V2_Path="/s233"
 fi
 echo ${V2_Path}
 
 if [[ -z "${QR_Path}" ]]; then
-  QR_Path="qr_img"
+  QR_Path="/qr_img"
 fi
 echo ${QR_Path}
 
@@ -43,65 +43,40 @@ rm -rf v2ray-plugin-linux-amd64-$V_VER.tar.gz
 mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
 rm -rf /v2raybin
 
-
-C_VER=`wget -qO- "https://api.github.com/repos/mholt/caddy/releases/latest" | grep 'tag_name' | cut -d\" -f4`
-mkdir /caddybin
-cd /caddybin
-CADDY_URL="https://github.com/mholt/caddy/releases/download/$C_VER/caddy_${C_VER}_linux_amd64.tar.gz"
-echo ${CADDY_URL}
-wget --no-check-certificate -qO 'caddy.tar.gz' ${CADDY_URL}
-tar xvf caddy.tar.gz
-rm -rf caddy.tar.gz
-chmod +x caddy
-
 cd /wwwroot
 tar xvf wwwroot.tar.gz
 rm -rf wwwroot.tar.gz
 
 if [ ! -d /etc/shadowsocks-libev ]; then  
-　　mkdir /etc/shadowsocks-libev
+  mkdir /etc/shadowsocks-libev
 fi
-# 在heroku上fast_open必须为false
-cat <<-EOF > /etc/shadowsocks-libev/config.json
-{
-    "server":"127.0.0.1",
-    "server_port":"2333",
-    "password":"${PASSWORD}",
-    "timeout":300,
-    "method":"${ENCRYPT}",
-    "mode": "tcp_and_udp",
-    "fast_open":false,
-    "reuse_port":true,
-    "no_delay":true,
-    "plugin": "v2ray-plugin",
-    "plugin_opts":"server;path=${V2_Path}"
-}
-EOF
 
+# TODO: bug when PASSWORD contain '/'
+sed -e "/^#/d"\
+    -e "s/\${PASSWORD}/${PASSWORD}/g"\
+    -e "s/\${ENCRYPT}/${ENCRYPT}/g"\
+    -e "s|\${V2_Path}|${V2_Path}|g"\
+    /conf/shadowsocks-libev_config.json >  /etc/shadowsocks-libev/config.json
 echo /etc/shadowsocks-libev/config.json
 cat /etc/shadowsocks-libev/config.json
 
-cat <<-EOF > /caddybin/Caddyfile
-http://0.0.0.0:${PORT}
-{
-	root /wwwroot
-	index index.html
-	timeouts none
-  errors {
-    404 404.html # Not Found
-    500 50x.html # Internal Server Error
-  }
-  rewrite ${V2_Path} {
-    if {>upgrade} not websocket
-    to status 404
-  }
-	proxy ${V2_Path} localhost:2333 {
-		websocket
-		header_upstream -Origin
-    transparent
-	}
-}
-EOF
+if [[ -z "${ProxySite}" ]]; then
+  s="s/proxy_pass/#proxy_pass/g"
+  echo "site:use local wwwroot html"
+else
+  s="s|\${ProxySite}|${ProxySite}|g"
+  echo "site: ${ProxySite}"
+fi
+
+sed -e "/^#/d"\
+    -e "s/\${PORT}/${PORT}/g"\
+    -e "s|\${V2_Path}|${V2_Path}|g"\
+    -e "s|\${QR_Path}|${QR_Path}|g"\
+    -e "$s"\
+    /conf/nginx_ss.conf > /etc/nginx/conf.d/ss.conf
+echo /etc/nginx/conf.d/ss.conf
+cat /etc/nginx/conf.d/ss.conf
+
 
 if [ "$AppName" = "no" ]; then
   echo "不生成二维码"
@@ -114,5 +89,4 @@ else
 fi
 
 ss-server -c /etc/shadowsocks-libev/config.json &
-cd /caddybin
-./caddy -conf="Caddyfile"
+nginx -g 'daemon off;'

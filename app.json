@@ -19,7 +19,7 @@
 
      "V2_Path": {
       "description": "Path路径，默认/static,为了安全你也可以使用uuid替换static，/不能少。",
-      "value": "/static"
+      "value": "/s233"
     },
 
      "AppName": {
@@ -27,11 +27,16 @@
       "value": "no"
     },
 
-
     "QR_Path": {
        "description": "二维码和配置链接路径，默认qr_img，为了保密性你也可以使用uuid,但是不能与V2_Path相同。如AppName变量为no，此变量没有作用",
-       "value": "qr_img"
-     }
+       "value": "/qr_img"
+     },
+
+     "ProxySite": {
+      "description": "反代一个网站，例如：www.ietf.org，不填写表示使用本地静态网页文件。",
+      "value": "www.ietf.org"
+    }
+
   },
   "website": "",
   "repository": "",
